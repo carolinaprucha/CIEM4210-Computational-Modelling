@@ -1,0 +1,76 @@
+% White Paper style for CIEM4210 project reports
+
+% --- Essential Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{inter}
+\usepackage{charter}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage[table]{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+
+% --- Visual Language ---
+\definecolor{TUDelftBlue}{RGB}{0,166,214}
+\definecolor{PlaceholderBlue}{RGB}{234,246,251}
+\definecolor{PlaceholderBorder}{RGB}{120,175,196}
+\hypersetup{colorlinks=true, linkcolor=TUDelftBlue, urlcolor=TUDelftBlue}
+
+\titleformat{\section}{\Large\bfseries\sffamily\color{TUDelftBlue}}{\thesection}{0.75em}{}[{\titlerule[0.5pt]}]
+\titleformat{\subsection}{\large\bfseries\sffamily\color{black}}{\thesubsection}{0.75em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\sffamily\color{black}}{\thesubsubsection}{0.75em}{}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\renewcommand{\arraystretch}{1.2}
+
+% --- Page Budget Controls ---
+\newcounter{maxreportpages}
+\setcounter{maxreportpages}{15}
+\newcounter{appendixstartpage}
+\newcommand{\setmaxreportpages}[1]{\setcounter{maxreportpages}{#1}}
+\newcommand{\pagecheck}[1]{\marginpar{\raggedright\footnotesize\itshape Target: #1 pages}}
+\let\oeoriginalappendix\appendix
+\renewcommand{\appendix}{%
+    \setcounter{appendixstartpage}{\value{page}}%
+    \oeoriginalappendix
+}
+\AtEndDocument{%
+    \clearpage
+    \ifnum\value{appendixstartpage}>0
+        \ifnum\numexpr\value{appendixstartpage}-1\relax>\value{maxreportpages}
+            \typeout{==============================================}%
+            \typeout{CIEM4210 PAGE LIMIT WARNING: main report exceeds 15 pages.}%
+            \typeout{Appendix pages are excluded from this count.}%
+            \typeout{Reduce content in the main report and move detail to appendices.}%
+            \typeout{==============================================}%
+            \PackageWarningNoLine{style}{Main report exceeds \arabic{maxreportpages} pages before appendices. Shorten the report body or move detail to appendices.}%
+        \fi
+    \else
+        \ifnum\value{page}>\value{maxreportpages}
+            \typeout{==============================================}%
+            \typeout{CIEM4210 PAGE LIMIT WARNING: document exceeds 15 pages.}%
+            \typeout{Reduce content in the main report and move detail to appendices.}%
+            \typeout{==============================================}%
+            \PackageWarningNoLine{style}{Document exceeds \arabic{maxreportpages} pages. Shorten the report or move detail to appendices.}%
+        \fi
+    \fi
+}
+
+% --- Reusable Template Blocks ---
+\newcommand{\instructionplaceholder}[2]{%
+    \vspace{0.5em}
+    \noindent\fcolorbox{PlaceholderBorder}{PlaceholderBlue}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+            \textbf{Instructional Placeholder: #1}\\
+            #2
+        }%
+    }%
+    \vspace{0.5em}
+}

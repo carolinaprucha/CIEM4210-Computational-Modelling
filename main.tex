@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{style.tex}
+
+\begin{document}
+
+% --- Title Page ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\huge\bfseries\sffamily CIEM4210: Computational Modelling\par}
+    \vspace{0.75cm}
+    {\Large\sffamily Project Report Template\par}
+    \vspace{1.25cm}
+    {\large\itshape Modelling a Floating Wind Turbine (OC3 Phase-IV Spar-Buoy)\par}
+    \vspace{2cm}
+    \begin{tabular}{ll}
+        \textbf{Project title:} & [Insert project title] \\
+        \textbf{Group number:} & [Insert group number] \\
+        \textbf{Student names:} & [Insert names and student numbers] \\
+        \textbf{Submission date:} & 12 June 2026, 17:00 \\
+    \end{tabular}
+    \vfill
+    {\large\sffamily TU Delft -- Hydraulic and Offshore Structures\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\setmaxreportpages{15}
+
+\section*{How to Use This Template}
+\instructionplaceholder{Template use}{Keep the main report within 15 pages, move long derivations and raw outputs to appendices, and ensure each claim is supported by numerical evidence, verification, or literature comparison.}
+
+\instructionplaceholder{Project scope}{This template is focused on the numerical modelling workflow of CIEM4210. Your report should cover structural modelling of the floating offshore wind turbine, numerical method derivation (FEM), implementation details, and quantitative result analysis.}
+
+\subsection*{Core + Choice Project Architecture}
+All groups must complete the \textbf{Core Model} and then include the additional components for the highest grade.
+\begin{itemize}
+    \item Core Model (mandatory): 2D FOWT structural model (RNA point mass, thin-beam tower, rigid-body spar-buoy, spring/damper mooring from quasi-static analysis), baseline Airy-wave/Morison loading, equivalent constant nacelle thrust, equivalent constant current force, FEM formulation, dynamic response assessment, and reduced-order/modal extension.
+    \item Extensions (for maximum grade): coupled axial-bending tower model, geometrically nonlinear mooring strings, flexible-beam floater representation, irregular-wave loading, time-dependent thrust force, and time-dependent current force.
+\end{itemize}
+
+\subsection*{Section Boundary Rules}
+\instructionplaceholder{What belongs where}{Keep evidence in the correct section: assumptions and scope in Section 1; discrete FEM formulation in Section 2; implementation and algorithmic choices in Section 3; verification (convergence, stability, modal) before interpreted engineering conclusions in Section 4. Results presented without prior verification are not considered final evidence.}
+
+\subsection*{Coding Ownership and AI-Minimisation}
+\instructionplaceholder{Required practice}{Document your own implementation decisions. For every major solver block, state: (i) why this method was selected, (ii) one alternative that was rejected, and (iii) one verification check used to validate behaviour. This is required even when AI tools are used for language support or debugging assistance.}
+
+\subsection*{Written Statement: Restricted Use of Generative AI}
+The use of Generative AI tools (for example Copilot, ChatGPT, and Gemini) is restricted in this course report for the following activities:
+\begin{itemize}
+    \item Generating derivations, final model equations, or numerical conclusions without independent understanding and verification.
+    \item Producing full report sections that are meant to evidence your own reasoning and technical judgement.
+    \item Producing complete code or solver routines for submission without testing, validating, and understanding the implementation.
+\end{itemize}
+Students remain fully responsible for all submitted content. If AI is used, complete the in-depth acknowledgement section at the end of this report.
+
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\section*{Executive Summary}
+\instructionplaceholder{Executive summary evidence}{Write this last. In at most one page, summarise model scope, key numerical choices, validation outcomes, dominant dynamic response conclusions, and main limitations.}
+
+\input{chapters/01_model_definition.tex}
+\input{chapters/02_numerical_methods.tex}
+\input{chapters/03_numerical_schemes.tex}
+\input{chapters/04_results_analysis.tex}
+
+\section*{References}
+\instructionplaceholder{Reference practice}{Include only sources that support your model formulation, numerical choices, validation strategy, and interpretation of results. Prioritise course material, standards, and peer-reviewed literature.}
+
+\newpage
+\appendix
+
+\section{Appendix A: Additional Derivations and Model Data}
+\instructionplaceholder{Appendix use}{Place expanded derivations, parameter tables, and supplementary equations here when they are too long for the main report body.}
+
+\section{Appendix B: Reproducibility Material}
+\instructionplaceholder{Appendix use}{Provide enough details to reproduce your results: solver settings, mesh/time-step tables, script structure, and links to executable files or notebooks.}
+
+\section{Appendix C: Decision Log and Verification Checklist}
+\instructionplaceholder{Appendix use}{Track key modelling decisions and their verification evidence. Use this log to show technical ownership and reduce black-box coding practices.}
+
+\begin{table}[h!]
+    \centering
+    \caption{Decision log template.}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.20\textwidth} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth}}
+        \toprule
+        Decision area & Selected approach and rationale & Alternative considered and rejected & Verification evidence (test/plot/table) \\
+        \midrule
+        Structural model & [Fill in] & [Fill in] & [Fill in] \\
+        Mooring model & [Fill in] & [Fill in] & [Fill in] \\
+        Loading model & [Fill in] & [Fill in] & [Fill in] \\
+        Time integration & [Fill in] & [Fill in] & [Fill in] \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section*{Acknowledgement of AI Use}
+\instructionplaceholder{If AI was used}{If you used any generative AI tools, complete this section. State: (i) which tool was used, (ii) for which specific task, (iii) how the output was verified or modified, and (iv) what you learned from the process that you would not have learned otherwise. This section is mandatory if AI was involved and will not affect your grade negatively if completed honestly.}
+
+\end{document}
