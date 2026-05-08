@@ -1,0 +1,28 @@
+% ============================================================
+% Section 1: Model Definition
+% Project focus: OC3 phase-IV spar-buoy floating wind turbine
+% ============================================================
+
+\section{Model Definition}
+\pagecheck{3--4}
+
+\subsection{Assumptions and scope boundaries}
+\instructionplaceholder{Required evidence}{List physical assumptions and scope limits before presenting equations or implementation choices. State what is included, what is excluded, expected impact of each simplification, and the operational range for which your model is intended.}
+
+\subsection{Geometry and system definition}
+\instructionplaceholder{Required evidence}{Define the 2D model geometry and all major components: RNA point mass, tower model, spar-buoy body, and mooring representation. State dimensions, reference coordinates, and parameter sources used for the OC3/NREL 5MW representation. Obtain dimensions from the relevant OC3/NREL 5MW reference documents and justify all modelling choices.}
+
+\subsection{Structural model components}
+\instructionplaceholder{Pass-level requirements}{Include at minimum: RNA point mass, thin-beam tower model, rigid-body spar-buoy formulation, and spring/damper mooring system with properties derived from a quasi-static analysis.}
+
+\instructionplaceholder{Extensions for maximum grade}{Describe optional extensions selected by your team, such as coupled axial-bending tower behaviour, geometrically nonlinear mooring strings, or a flexible-beam floater representation. Justify each extension physically and numerically, and explain why it was prioritised over alternatives.}
+
+\subsection{Environmental loading model}
+\instructionplaceholder{Wave loading}{Describe the wave loading approach. Baseline: linear wave theory (Airy waves) for regular waves and Morison force (inertia and drag terms, including added mass and added damping). Extension for maximum grade: irregular waves.}
+
+\instructionplaceholder{Wind loading}{Describe the wind loading approach. Baseline: equivalent constant thrust force at the nacelle. Extension for maximum grade: time-dependent thrust force.}
+
+\instructionplaceholder{Current loading}{Describe the current loading approach. Baseline: equivalent constant current force. Extension for maximum grade: time-dependent current force.}
+
+\subsection{Governing equations and model scope}
+\instructionplaceholder{Required evidence}{Present the governing equations for each structural component, state variables, degrees of freedom, coupling interfaces, and the assembled system. Keep this section at the continuous-model level only; do not include discretisation details here.}
